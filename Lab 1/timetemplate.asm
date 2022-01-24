@@ -14,9 +14,12 @@
 
 	.data
 	.align 2
+	
 mytime: .word 0x5957
+
 timstr: .ascii "text more text lots of text\0"
 	.text
+	
 main:
 	# print timstr
 	la $a0,timstr
@@ -46,6 +49,7 @@ main:
 	j main
 	nop
 # tick: update time pointed to by $a0
+
 tick:	lw $t0,0($a0)			# get time
 	addiu $t0,$t0,1		# increase
 	andi $t1,$t0,0xf		# check lowest digit
@@ -68,6 +72,7 @@ tick:	lw $t0,0($a0)			# get time
 	bnez $t2,tiend
 	nop
 	addiu $t0,$t0,0xa000	# adjust last digit
+	
 tiend:	sw $t0,0($a0)		# save updated result
 	jr $ra				# return
 	nop
