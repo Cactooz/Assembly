@@ -77,6 +77,7 @@ tiend:	sw $t0,0($a0)		# save updated result
 	jr $ra				# return
 	nop
 	
+  # you can write your code for subroutine "hexasc" below this line
 hexasc:
 	and $t0, $a0, 0x0F #Mask out all bits except the first LSBx16 and save to $t0
 	slti $t1, $t0, 10 #Check if $t0 < 10
@@ -98,5 +99,4 @@ delay:
 	jr $ra
 	nop
 
-  # you can write your code for subroutine "hexasc" below this line
   
