@@ -76,6 +76,10 @@ tick:	lw $t0,0($a0)			# get time
 tiend:	sw $t0,0($a0)		# save updated result
 	jr $ra				# return
 	nop
+	
+delay:
+	jr $ra
+	nop
 
   # you can write your code for subroutine "hexasc" below this line
   
