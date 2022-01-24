@@ -77,6 +77,23 @@ tiend:	sw $t0,0($a0)		# save updated result
 	jr $ra				# return
 	nop
 	
+hexasc:
+	and $t0, $a0, 0x0F #Mask out all bits except the first LSBx16 and save to $t0
+	slti $t1, $t0, 10 #Check if $t0 < 10
+	beq $t1, 1, numbers #Branch to numbers if $t1=1
+	nop #Delay
+	
+	addi $t0, $a0, 0x37 #Add 0x37 to get to the correct ASCII letter values
+	move $v0, $t0 #Move the output into the return
+	
+	jr $ra #Return $ra
+	
+numbers:
+	addi $t0, $t0, 0x30 #Add 0x30 to get the correct ASCII number values
+	move $v0, $t0 #Move the output into the return
+	
+	jr $ra #Return $ra
+
 delay:
 	jr $ra
 	nop
