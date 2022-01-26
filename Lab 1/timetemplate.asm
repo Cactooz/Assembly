@@ -98,5 +98,27 @@ numbers:
 delay:
 	jr $ra
 	nop
-
-  
+	
+time2string:
+	PUSH($ra) #Push $ra to the stack
+	PUSH($s0) #Push $s0 to the stack
+	PUSH($s1) #Push $s1 to the stack
+	
+	#Save $a0 to $s1
+	move $s0, $a0
+	
+	#Mm:ss
+	move $s1, $a1 #Save $a1 to $s1
+	srl $s1, $s1, 12 #Shift 12 steps to the right
+	and $s1, $s1 0x0F #Mask out all except the four LSb
+	move $a0, $s1 #Move $s1 to $a0
+	
+	jal hexasc #Go to hexasc
+	nop
+	
+	sb $a0, 1($s0) #Copy $a0 to $s0
+		
+	POP($s1) #Pop to get back $s1 from the stack
+	POP($s0) #Pop to get back $s0 from the stack
+	POP($ra) #Pop to get back $ra from the stack
+	jr $ra #Return $ra
