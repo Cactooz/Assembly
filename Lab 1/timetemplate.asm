@@ -104,11 +104,10 @@ time2string:
 	PUSH($s0) #Push $s0 to the stack
 	PUSH($s1) #Push $s1 to the stack
 	
-	#Save $a0 to $s1
-	move $s0, $a0
+	move $s0, $a0 #Save $a0 to $s1
+	move $s1, $a1 #Save $a1 to $s1
 	
 	#Mm:ss
-	move $s1, $a1 #Save $a1 to $s1
 	srl $t1, $s1, 12 #Shift 12 steps to the right
 	and $t1, $t1 0x0F #Mask out all except the four LSb
 	move $a0, $t1 #Move $s1 to $a0
