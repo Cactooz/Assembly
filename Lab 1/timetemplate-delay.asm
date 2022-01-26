@@ -88,12 +88,14 @@ hexasc:
 	move $v0, $t0 #Move the output into the return
 	
 	jr $ra #Return $ra
+	nop
 	
 numbers:
 	addi $t0, $t0, 0x30 #Add 0x30 to get the correct ASCII number values
 	move $v0, $t0 #Move the output into the return
 	
 	jr $ra #Return $ra
+	nop
 
 delay:
 	move $t0, $a0 #Save the input in ms from $a0 to $t0
@@ -182,3 +184,4 @@ time2string:
 	POP($s0) #Pop to get back $s0 from the stack
 	POP($ra) #Pop to get back $ra from the stack
 	jr $ra #Return $ra
+	nop
