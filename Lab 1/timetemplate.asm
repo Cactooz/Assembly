@@ -110,13 +110,52 @@ time2string:
 	#Mm:ss
 	srl $t1, $s1, 12 #Shift 12 steps to the right
 	and $t1, $t1 0x0F #Mask out all except the four LSb
-	move $a0, $t1 #Move $s1 to $a0
+	move $a0, $t1 #Move $t1 to $a0
 	
 	jal hexasc #Go to hexasc
 	nop
 	
-	sb $a0, 0($s0) #Copy $a0 to $s0
-			
+	sb $v0, 0($s0) #Copy $v0 to $s0
+	
+	#mM:ss
+	srl $t1, $s1, 8 #Shift 8 steps to the right
+	and $t1, $t1 0x0F #Mask out all except the four LSb
+	move $a0, $t1 #Move $t1 to $a0
+	
+	jal hexasc #Go to hexasc
+	nop
+	
+	sb $v0, 1($s0) #Copy $v0 to $s0
+	
+	#mm : ss
+	li $t0, 0x3A #Add : to $t0
+	sb $t0, 2($s0) #Copy $t0 to $s0
+	
+	#mm:Ss
+	srl $t1, $s1, 4 #Shift 4 steps to the right
+	and $t1, $t1 0x0F #Mask out all except the four LSb
+	move $a0, $t1 #Move $t1 to $a0
+	
+	jal hexasc #Go to hexasc
+	nop
+	
+	sb $v0, 3($s0) #Copy $v0 to $s0
+	
+	#mm:sS
+	and $t1, $s1 0x0F #Mask out all except the four LSb
+	move $a0, $t1 #Move $t1 to $a0
+	
+	jal hexasc #Go to hexasc
+	nop
+	
+	sb $v0, 4($s0) #Copy $v0 to $s0
+	
+	#Add ending NULL byte
+	li $t0, 0x0 #Add 0 to $t0
+	sb $t0, 5($s0) #Copy $t0 to $s0
+	
+	move $v0, $s0 #Move $v0 to $v0
+	
 	POP($s1) #Pop to get back $s1 from the stack
 	POP($s0) #Pop to get back $s0 from the stack
 	POP($ra) #Pop to get back $ra from the stack
