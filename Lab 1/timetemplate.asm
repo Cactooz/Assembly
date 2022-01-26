@@ -109,15 +109,15 @@ time2string:
 	
 	#Mm:ss
 	move $s1, $a1 #Save $a1 to $s1
-	srl $s1, $s1, 12 #Shift 12 steps to the right
-	and $s1, $s1 0x0F #Mask out all except the four LSb
-	move $a0, $s1 #Move $s1 to $a0
+	srl $t1, $s1, 12 #Shift 12 steps to the right
+	and $t1, $t1 0x0F #Mask out all except the four LSb
+	move $a0, $t1 #Move $s1 to $a0
 	
 	jal hexasc #Go to hexasc
 	nop
 	
-	sb $a0, 1($s0) #Copy $a0 to $s0
-		
+	sb $a0, 0($s0) #Copy $a0 to $s0
+			
 	POP($s1) #Pop to get back $s1 from the stack
 	POP($s0) #Pop to get back $s0 from the stack
 	POP($ra) #Pop to get back $ra from the stack
