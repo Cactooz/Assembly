@@ -109,7 +109,6 @@ time2string:
 	
 	#Mm:ss
 	srl $t1, $s1, 12 #Shift 12 steps to the right
-	and $t1, $t1 0x0F #Mask out all except the four LSb
 	move $a0, $t1 #Move $t1 to $a0
 	
 	jal hexasc #Go to hexasc
@@ -119,7 +118,6 @@ time2string:
 	
 	#mM:ss
 	srl $t1, $s1, 8 #Shift 8 steps to the right
-	and $t1, $t1 0x0F #Mask out all except the four LSb
 	move $a0, $t1 #Move $t1 to $a0
 	
 	jal hexasc #Go to hexasc
@@ -133,7 +131,6 @@ time2string:
 	
 	#mm:Ss
 	srl $t1, $s1, 4 #Shift 4 steps to the right
-	and $t1, $t1 0x0F #Mask out all except the four LSb
 	move $a0, $t1 #Move $t1 to $a0
 	
 	jal hexasc #Go to hexasc
@@ -142,8 +139,7 @@ time2string:
 	sb $v0, 3($s0) #Copy $v0 to $s0
 	
 	#mm:sS
-	and $t1, $s1 0x0F #Mask out all except the four LSb
-	move $a0, $t1 #Move $t1 to $a0
+	move $a0, $s1 #Move $s1 to $a0
 	
 	jal hexasc #Go to hexasc
 	nop
