@@ -17,7 +17,12 @@
 .endm
  
   # Please add your own code below this line
-   
+ .data
+ .global time2string
+ global delay
+ 
+ .text
+ 
  hexasc:
 	and $t0, $a0, 0x0F #Mask out all bits except the first LSBx16 and save to $t0
 	slti $t1, $t0, 10 #Check if $t0 < 10
