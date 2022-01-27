@@ -14,8 +14,8 @@ main:
 	li $v0,11			# syscall with v0 = 11 will print out
 	syscall			# one byte from a0 to the Run I/O window
 	
-stop:	j stop			# stop after one run
-	nop				# delay slot filler (just in case)
+    li $v0, 10              # terminate program run and
+    syscall   
 
   # You can write your own code for hexasc here
 hexasc:
