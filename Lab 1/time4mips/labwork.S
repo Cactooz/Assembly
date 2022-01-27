@@ -8,18 +8,19 @@
 
 .macro	PUSH reg
 	addi	$sp,$sp,-4
-	sw	\reg,0($sp)
+	sw \reg,0($sp)
 .endm
 
 .macro	POP reg
-	lw	\reg,0($sp)
+	lw	 \reg,0($sp)
 	addi	$sp,$sp,4
 .endm
  
   # Please add your own code below this line
  .data
- .global time2string
- global delay
+.global hexasc
+.global delay
+.global time2string
  
  .text
  
@@ -73,9 +74,9 @@ delay:
 	nop
 	
 time2string:
-	PUSH($ra) #Push $ra to the stack
-	PUSH($s0) #Push $s0 to the stack
-	PUSH($s1) #Push $s1 to the stack
+	PUSH $ra #Push $ra to the stack
+	PUSH $s0 #Push $s0 to the stack
+	PUSH $s1 #Push $s1 to the stack
 	
 	move $s0, $a0 #Save $a0 to $s1
 	move $s1, $a1 #Save $a1 to $s1
@@ -125,8 +126,8 @@ time2string:
 	
 	move $v0, $s0 #Move $v0 to $v0
 	
-	POP($s1) #Pop to get back $s1 from the stack
-	POP($s0) #Pop to get back $s0 from the stack
-	POP($ra) #Pop to get back $ra from the stack
+	POP $s1 #Pop to get back $s1 from the stack
+	POP $s0 #Pop to get back $s0 from the stack
+	POP $ra #Pop to get back $ra from the stack
 	jr $ra #Return $ra
 	nop
