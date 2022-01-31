@@ -4,7 +4,7 @@
 
 	.text
 main:
-	li $a0,17			# change this to test different values
+	li $a0,17 	# change this to test different values
 
 	jal hexasc		# call hexasc
 	nop				# delay slot filler (just in case)	
@@ -28,9 +28,11 @@ hexasc:
 	move $v0, $t0 #Move the output into the return
 	
 	jr $ra #Return $ra
+	nop
 	
 numbers:
 	addi $t0, $t0, 0x30 #Add 0x30 to get the correct ASCII number values
 	move $v0, $t0 #Move the output into the return
 	
 	jr $ra #Return $ra
+	nop
