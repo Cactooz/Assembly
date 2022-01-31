@@ -82,7 +82,7 @@ time2string:
 	move $s1, $a1 #Save $a1 to $s1
 	
 	#Print hour
-	andi $t0, $s1, 0x0FF #Mask out all bits except the 16 x lsb
+	andi $t0, $s1, 0x0FFFF #Mask out all bits except the 16 x lsb
 	bne $t0, 0, time #If $t6 != 0, go to time
 	nop
 	
