@@ -41,8 +41,8 @@ void print_numbers(int n){
 }
 
 int is_prime(int n){
-	//Return instantly if n = 1 or 2
-	if(n == 1 || n == 2) return 1;
+	//Return instantly if n = 0 or 1
+	if(n == 0 || n == 1) return 0;
 	
 	//If n can be divided return 0
 	for(int i = 2; i < n/2; i++) {
