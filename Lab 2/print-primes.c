@@ -30,14 +30,15 @@ void print_primes(int n){
 
 int currentColumn = 0;
 void print_numbers(int n){
-	if(currentColumn == COLUMNS) {
-		printf("\n");
-		printf("%10d", n);
-	}
-	else
-		printf("%10d", n);
+	//Print the number
+	printf("%10d", n);
 	
+	//Add a column to the counter
 	currentColumn++;
+
+	//Print a new line after the correct amount of COLUMNS
+	if(currentColumn%COLUMNS == 0)
+		printf("\n");
 }
 
 int is_prime(int n){
