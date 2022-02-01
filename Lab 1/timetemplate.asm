@@ -156,3 +156,5 @@ time2string:
 	POP($s0) #Pop to get back $s0 from the stack
 	POP($ra) #Pop to get back $ra from the stack
 	jr $ra #Return $ra
+	nop
+	
