@@ -40,6 +40,19 @@ void print_numbers(int n){
 	currentColumn++;
 }
 
+int is_prime(int n){
+	//Return instantly if n = 1 or 2
+	if(n == 1 || n == 2) return 1;
+	
+	//If n can be divided return 0
+	for(int i = 2; i < n/2; i++) {
+		if(n%i == 0) return 0;
+	}
+
+	//Else return 1
+	return 1;
+}
+
 // 'argc' contains the number of program arguments, and
 // 'argv' is an array of char pointers, where each
 // char pointer points to a null-terminated string.
