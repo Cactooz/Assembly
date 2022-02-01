@@ -28,6 +28,18 @@ void print_primes(int n){
 	printf("\n");
 }
 
+int currentColumn = 0;
+void print_numbers(int n){
+	if(currentColumn == COLUMNS) {
+		printf("\n");
+		printf("%10d", n);
+	}
+	else
+		printf("%10d", n);
+	
+	currentColumn++;
+}
+
 // 'argc' contains the number of program arguments, and
 // 'argv' is an array of char pointers, where each
 // char pointer points to a null-terminated string.
