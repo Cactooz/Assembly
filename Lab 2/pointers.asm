@@ -1,8 +1,7 @@
 
-        # pointers.asm
+# pointers.asm
 # By David Broman, 2015-09-14
 # This file is in the public domain
-
 
 .macro	PUSH (%reg)
 	addi	$sp,$sp,-4
@@ -15,7 +14,6 @@
 .end_macro
 
 .data
-
 
 text1: 	  .asciiz "This is a string."
 text2:	  .asciiz "Yet another thing."
@@ -44,7 +42,6 @@ work:
 	jal	copycodes
 	POP	($ra)
 	
-	
 # function copycodes()
 copycodes:
 loop:
@@ -61,7 +58,3 @@ loop:
 	j	loop
 done:
 	jr	$ra
-		
-
-
-
