@@ -14,8 +14,7 @@ void print_primes(int n){
 	// the number of columns is stated in the define
 	// COLUMNS
 	for(int i = 2; i <= n; i++){
-		if(is_prime(i))
-			print_sieves(i);
+		print_sieves(i);
 	}
 }
 
