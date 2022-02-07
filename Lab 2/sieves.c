@@ -21,7 +21,7 @@ void print_sieves(int n){
 
 	//Fill the array with the numbers from 2
 	for(int i = 2; i < n; i++){
-		numbers[i] = i;
+		numbers[i-2] = i;
 	}
 }
 
