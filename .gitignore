@@ -1,4 +1,7 @@
-#C
+#########
+#C ignore
+#########
+
 # Prerequisites
 *.d
 
@@ -52,7 +55,10 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-#MIPS
+############
+#MIPS ignore
+############
+
 # Compiled class file
 *.class
 
