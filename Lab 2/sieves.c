@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define COLUMNS 6
+
+int currentColumn = 0;
+void print_numbers(int n){
+	//Print the number
+	printf("%10d", n);
+	
+	//Add a column to the counter
+	currentColumn++;
+
+	//Print a new line after the correct amount of COLUMNS
+	if(currentColumn%COLUMNS == 0)
+		printf("\n");
+}
+
 void print_sieves(int n){
 	int numbers[n-2];
 
