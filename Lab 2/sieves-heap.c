@@ -17,7 +17,7 @@ void print_numbers(int n){
 }
 
 void print_sieves(int n){
-	int numbers[n-2];
+	int *numbers = malloc(sizeof(int)*(n-2));
 
 	//Fill the array with the numbers from 2
 	for(int i = 2; i <= n; i++){
@@ -36,6 +36,7 @@ void print_sieves(int n){
 			}
 		}
 	}
+	free(numbers);
 }
 
 // 'argc' contains the number of program arguments, and
