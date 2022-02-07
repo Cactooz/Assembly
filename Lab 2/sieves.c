@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void print_sieves(int n){
 	int numbers[n-2];
