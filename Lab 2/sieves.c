@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+void print_sieves(int n){
+	int numbers[n-2];
+
+	//Fill the array with the numbers from 2
+	for(int i = 2; i < n; i++){
+		numbers[i] = i;
+	}
+}
 void print_primes(int n){
 	// Should print out all prime numbers less than 'n'
 	// with the following formatting. Note that
