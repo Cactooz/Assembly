@@ -20,17 +20,17 @@ void print_sieves(int n){
 	int numbers[n-2];
 
 	//Fill the array with the numbers from 2
-	for(int i = 2; i <= n; i++){
+	for(int i = 2; i < n; i++){
 		numbers[i-2] = i;
 	}
 
-	for(int i = 0; i <= n-2; i++){
+	for(int i = 0; i < n-2; i++){
 		if(numbers[i] != 0){
 			//Print the number
 			print_numbers(numbers[i]);
 
 			//Remove the multiples for the number
-			for(int j = i; j <= n-2; j += numbers[i]){
+			for(int j = i; j < n-2; j += numbers[i]){
 				if(j != i)
 					numbers[j] = 0;
 			}
