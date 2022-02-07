@@ -31,7 +31,7 @@ void print_sieves(int n){
 
 			//Remove the multiples for the number
 			for(int j = i; j <= n-2; j += numbers[i]){
-				if(numbers[j] != numbers[i])
+				if(j != i)
 					numbers[j] = 0;
 			}
 		}
