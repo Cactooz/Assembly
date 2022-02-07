@@ -30,8 +30,8 @@ void print_sieves(int n){
 			print_numbers(numbers[i]);
 
 			//Remove the multiples for the number
-			for(int j = i; j <= n-2; j++){
-				if(numbers[j] % numbers[i] == 0 && numbers[j] != numbers[i])
+			for(int j = i; j <= n-2; j += numbers[i]){
+				if(numbers[j] != numbers[i])
 					numbers[j] = 0;
 			}
 		}
