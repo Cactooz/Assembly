@@ -17,6 +17,12 @@ void print_numbers(int n){
 }
 
 void print_sieves(int n){
+	//Just print 2, if n = 2
+	if(n == 2) {
+		printf("2");
+		return;
+	}
+
 	int numbers[n-2];
 
 	//Fill the array with the numbers from 2
