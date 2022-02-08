@@ -23,7 +23,7 @@ void print_sieves(int n){
 		return;
 	}
 
-	int numbers[n-2];
+	char numbers[n-2];
 
 	//Fill the array with the numbers from 2
 	for(int i = 2; i < n; i++){
