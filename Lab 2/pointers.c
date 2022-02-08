@@ -3,6 +3,29 @@
 char* text1 = "This is a string.";
 char* text2 = "Yet another thing.";
 
+int count = 0;
+
+int list1[20];
+int list2[20];
+
+void copycodes(char* text, int* list, int* counter){
+	char tmp = *text;
+	while(tmp) {
+		*list = tmp;
+
+		text++;
+		list++;
+
+		*counter += 1;
+		tmp = *text;
+	}
+}
+
+void work(){
+	copycodes(text1, list1, &count);
+	copycodes(text2, list2, &count);
+}
+
 void printlist(const int* lst){
 	printf("ASCII codes and corresponding characters.\n");
 	while(*lst != 0){
