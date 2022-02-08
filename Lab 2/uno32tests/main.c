@@ -30,8 +30,8 @@ int main()
   /* Local variables. */
   int m;
   int * p; /* Declare p as pointer, so that p can hold an address. */
-  char cs[ 9 ] = "Bonjour!";
-  char * cp = cs; /* Declare cp as pointer, initialise cp to point to cs */
+  char cs[9] = "Bonjour!";
+  char *cp = cs; /* Declare cp as pointer, initialise cp to point to cs */
 
   /* Do some calculation. */
   gv = 4;
@@ -57,7 +57,7 @@ int main()
   saveword( "AM7: p", &p );
   saveword( "AM8: m", &m );
 
-  p = (int*)cp;   /* Casting a char pointer to an integer pointer */
+  p = (int*)cp; /* Casting a char pointer to an integer pointer */
 
   saveword( "AM9: p", &p );
 
