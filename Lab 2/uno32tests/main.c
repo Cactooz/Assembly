@@ -43,6 +43,7 @@ int main()
   saveword( "AM3: fun", &fun );
   saveword( "AM4: main", &main );
 
+  //P gets the adress of m
   p = &m;
 
   /* Check p and m */
@@ -50,7 +51,7 @@ int main()
   saveword( "AM6: m", &m );
 
   /* Change *p */
-
+  //Add one to p's value
   *p = *p + 1;
 
   /* Check p and m */
@@ -66,6 +67,7 @@ int main()
   savebyte( "AM12: cs[2]", &cs[2] );
   savebyte( "AM13: cs[3]", &cs[3] );
 
+  //Change the value of p to 0x1234abcd
   *p = 0x1234abcd; /* It starts to get interesting... */
 
   savebyte( "AM14: cs[0]", &cs[0] );
@@ -73,6 +75,7 @@ int main()
   savebyte( "AM16: cs[2]", &cs[2] );
   savebyte( "AM17: cs[3]", &cs[3] );
 
+  //Add one to m, saveword and then overwrite gv
   fun(m);
 
   /* Re-check the addresses and values of m and gv */
