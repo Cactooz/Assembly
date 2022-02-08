@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define COLUMNS 6
 
@@ -17,31 +18,26 @@ void print_numbers(int n){
 }
 
 void print_sieves(int n){
-	//Just print 2, if n = 2
-	if(n == 2) {
-		printf("2");
-		return;
-	}
-	
 	char *numbers = malloc(sizeof(char)*(n-2));
 
-	//Fill the array with the numbers from 2
-	for(int i = 2; i < n; i++){
-		numbers[i-2] = i;
+	//Fill the array with 1
+	for(int i = 0; i < n-1; i++){
+		numbers[i] = 1;
 	}
 
-	for(int i = 0; i < n-2; i++){
-		if(numbers[i] != 0){
-			//Print the number
-			print_numbers(numbers[i]);
-
+	for(int i = 0; i+2 <= sqrt(n); i++){
+		if(numbers[i]){
 			//Remove the multiples for the number
-			for(int j = i; j < n-2; j += numbers[i]){
-				if(j != i)
-					numbers[j] = 0;
+			for(int j = (i+2)*(i+2); j <= n; j+=(i+2)){
+				numbers[j-2] = 0;
 			}
 		}
 	}
+
+	//Print the numbers
+	for(int i = 0; i < n-1; i++)
+		if(numbers[i])
+			print_numbers(i+2);
 	free(numbers);
 }
 
