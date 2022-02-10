@@ -103,12 +103,12 @@ EXTRA
    They are located in the RAM according to the PIC32 memory map. Because the variables are stored in the RAM, because variables doesn't have to be stored when the program stops.
 
 2. We check AM5 for the adress of p. 0xA0003FE8 and AM6 for the adress of m: 0xA0003FE4.
-   They are located in the RAM according to the PIC32 memory map.
+   They are located in Reserved according to the PIC32 memory map.
    They have a much bigger adress than in and gv, because they are local variables, instead of global variables. The global variables gets loaded first and later the local variables when they are first used.
 
 3. The adress of p. 0xA0003FE8 and it points at the adress 0xA0003FE4, which is adress for m and m has the data 0x7.
 
-4. Identical to question 3.
+3. The adress of p. 0xA0003FE8 and it points at the adress 0xA0003FE4, which is adress for m and m has the data 0x8. It's one bigger because of *p = *p + 1.
 
 5. Little-endian, because it reads 0x1234abcd from the right to the left, so cs[0] = CD, cs[1] = AB and so on. So the lsb comes before msb.
 
