@@ -94,8 +94,8 @@ int main()
 3. The cp pointer points at 9 bytes because of 8 chars for Bonjour! and one ending null byte.
 
 4. We check AM3 for the adress of fun: 0x9D001180 and AM4 for the adress of main: 0x9D0011D8 on the IO Sheild Display.
-   They are located in the Program Flash according to the PIC32 memory map. That are in the Kernal Space.
-   The data section is a pointer that points to the first row of the machine code in main respectively  fun. 
+   They are located in the Program Flash according to the PIC32 memory map. That are in the Kernal Space 0.
+   The data section is a pointer that points to the first row (first instruction) of the machine code in main respectively fun. 
 
 EXTRA
 
@@ -103,7 +103,7 @@ EXTRA
    They are located in the RAM according to the PIC32 memory map. Because the variables are stored in the RAM, because variables doesn't have to be stored when the program stops.
 
 2. We check AM5 for the adress of p. 0xA0003FE8 and AM6 for the adress of m: 0xA0003FE4.
-   Both are local variables. They are located in Reserved according to the PIC32 memory map.
+   Both are local variables. They are located in Reserved according to the PIC32 memory map. That are in the Kernal Space 1.
    They have a much bigger adress than in and gv, because they are local variables, instead of global variables. The global variables gets loaded first and later the local variables when they are first used.
 
 3. The adress of p. 0xA0003FE8 and it points at the adress 0xA0003FE4, which is adress for m and m has the data 0x7.
