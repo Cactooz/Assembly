@@ -40,6 +40,15 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
+	int btnData = getbtns(); //Get the data from the buttons
+	int swData = getsw(); //Get the data from the switches
+	if(btnData & 4) //Button 4, 0100 = 4
+		mytime = (mytime & 0x0FFF) | (swData << 12);
+	if(btnData & 2) //Button 3, 0010 = 2
+		mytime = (mytime & 0xF0FF) | (swData << 8);
+	if(btnData & 1) //Button 2, 0001 = 1
+		mytime = (mytime & 0xFF0F) | (swData << 4);
+
 	delay( 1000 );
 	time2string( textstring, mytime );
 	display_string( 3, textstring );
