@@ -54,7 +54,7 @@ delay:
 		add $t0, $t0, -1 #Remove one ms from $t0
 
 		li $t2, 0 #Set $t2 to 0
-		li $t3, 83 #Set t3 to 83
+		li $t3, 83 #Set t3 to 4950
 		
 		for:
 			slt $t4, $t2, $t3 #Check if $t2 is less than 400
