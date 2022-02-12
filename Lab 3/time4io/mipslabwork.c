@@ -21,7 +21,7 @@ char textstring[] = "text, more text, and even more text!";
 /* Interrupt Service Routine */
 void user_isr( void )
 {
-  return;
+	return;
 }
 
 /* Lab-specific initialization goes here */
@@ -33,10 +33,10 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
-  delay( 1000 );
-  time2string( textstring, mytime );
-  display_string( 3, textstring );
-  display_update();
-  tick( &mytime );
-  display_image(96, icon);
+	delay( 1000 );
+	time2string( textstring, mytime );
+	display_string( 3, textstring );
+	display_update();
+	tick( &mytime );
+	display_image(96, icon);
 }
