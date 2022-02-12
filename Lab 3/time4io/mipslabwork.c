@@ -27,7 +27,7 @@ void user_isr( void )
 /* Lab-specific initialization goes here */
 void labinit( void )
 {
-  return;
+	volatile int* trisE = (volatile int*) 0xbf886100;
 }
 
 /* This function is called repetitively from the main program */
