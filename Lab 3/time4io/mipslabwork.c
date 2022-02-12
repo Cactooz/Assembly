@@ -32,6 +32,8 @@ void labinit( void )
 	volatile int* trisE = (volatile int*) 0xbf886100; /* Create the trisE pointer to the adress */
 	*trisE & 0x11111100; /* Set bit 0-7 to 0 to make the trisE an output */
 
+	TRISDCLR = 0x00000fe0; /* Set bit 5-11 to 1, 0000 0000 0000 0000 0000 1111 1110 0000 = 0x00000fe0*/
+
 	*portE & 0x11111100; /* Set bit 0-7 to 0 to initialize portE as 0 */
 }
 
