@@ -18,6 +18,8 @@ int mytime = 0x5957;
 
 char textstring[] = "text, more text, and even more text!";
 
+volatile int* portE = (volatile int*) 0xbf886110; /* Pointer for portE to its adress */
+
 /* Interrupt Service Routine */
 void user_isr( void )
 {
@@ -27,7 +29,10 @@ void user_isr( void )
 /* Lab-specific initialization goes here */
 void labinit( void )
 {
-	volatile int* trisE = (volatile int*) 0xbf886100;
+	volatile int* trisE = (volatile int*) 0xbf886100; /* Create the trisE pointer to the adress */
+	*trisE & 0x11111100; /* Set bit 0-7 to 0 to make the trisE an output */
+
+	*portE & 0x11111100; /* Set bit 0-7 to 0 to initialize portE as 0 */
 }
 
 /* This function is called repetitively from the main program */
@@ -39,4 +44,6 @@ void labwork( void )
 	display_update();
 	tick( &mytime );
 	display_image(96, icon);
+
+	*portE += 1; /* Add one to portE for each tick */
 }
