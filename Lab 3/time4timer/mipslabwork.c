@@ -20,6 +20,8 @@ char textstring[] = "text, more text, and even more text!";
 
 volatile int* portE = (volatile int*) 0xbf886110; //Pointer for portE to its adress
 
+int timeout = 0; //Keeping track of the amount of timeouts
+
 /* Interrupt Service Routine */
 void user_isr( void )
 {
@@ -60,12 +62,20 @@ void labwork( void )
 	if(btnData & 1) //Button 2, 0001 = 1
 		mytime = (mytime & 0xFF0F) | (swData << 4);
 
-	delay( 1000 );
-	time2string( textstring, mytime );
-	display_string( 3, textstring );
-	display_update();
-	tick( &mytime );
-	display_image(96, icon);
+	if(IFS(0) & 0x0100) { //Check if the 3rd bit is 1, if so then we have a interupt for TMR2
+		time2string( textstring, mytime );
+		display_string( 3, textstring );
+		display_update();
+		display_image(96, icon);
+
+		timeout++; //Increment timeout, counting up to a second
+		IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
+	}
+
+	if(timeout >= 10) {
+		tick(&mytime); //Increment the time
+		timeout = 0; //Reset the timeout
+	}
 
 	*portE += 1; //Add one to portE for each tick
 }
