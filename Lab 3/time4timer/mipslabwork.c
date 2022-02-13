@@ -74,8 +74,7 @@ void labwork( void )
 
 	if(timeout >= 10) {
 		tick(&mytime); //Increment the time
+		*portE += 1; //Add one to portE each second
 		timeout = 0; //Reset the timeout
 	}
-
-	*portE += 1; //Add one to portE for each tick
 }
