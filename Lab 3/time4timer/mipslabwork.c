@@ -20,7 +20,7 @@ char textstring[] = "text, more text, and even more text!";
 
 volatile int* portE = (volatile int*) 0xbf886110; //Pointer for portE to its adress
 
-int timeout = 0; //Keeping track of the amount of timeouts
+int timeoutcount = 0; //Keeping track of the amount of timeouts
 
 /* Interrupt Service Routine */
 void user_isr( void )
@@ -68,13 +68,13 @@ void labwork( void )
 		display_update();
 		display_image(96, icon);
 
-		timeout++; //Increment timeout, counting up to a second
+		timeoutcount++; //Increment timeout, counting up to a second
 		IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
 	}
 
-	if(timeout >= 10) {
+	if(timeoutcount >= 10) {
 		tick(&mytime); //Increment the time
 		*portE += 1; //Add one to portE each second
-		timeout = 0; //Reset the timeout
+		timeoutcount = 0; //Reset the timeout
 	}
 }
