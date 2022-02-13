@@ -35,6 +35,15 @@ void labinit( void )
 	TRISDSET = 0x00000fe0; //Set bit 5-11 to 1 to use as input, 0000 0000 0000 0000 0000 1111 1110 0000 = 0x00000fe0
 
 	*portE & 0x11111100; //Set bit 0-7 to 0 to initialize portE as 0 (output)
+
+	//Timer
+	T2CONCLR = 0xffff; //Disable and clear the timer
+
+	T2CONSET = 0x70; //Set the prescale to 256:1 (The timer fires 80 000 000 times a second which is more than the 65k that 16-bits can hold)
+	PR2 = 0x7a12; //Set the time period for timer2 to 100ms (80 000 000/256=312500, 312500/10=31250=0x7a12)
+	
+	TMR2 = 0; //Set the timer to 0
+	T2CONSET = 0x8000; //Start the timer
 }
 
 /* This function is called repetitively from the main program */
