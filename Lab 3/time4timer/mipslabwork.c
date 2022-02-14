@@ -63,17 +63,17 @@ void labwork( void )
 		mytime = (mytime & 0xFF0F) | (swData << 4);
 
 	if(IFS(0) & 0x0100) { //Check if the 3rd bit is 1, if so then we have a interupt for TMR2
-		time2string( textstring, mytime );
-		display_string( 3, textstring );
-		display_update();
-		display_image(96, icon);
-
 		timeoutcount++; //Increment timeout, counting up to a second
 		IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
 	}
 
 	if(timeoutcount >= 10) {
 		tick(&mytime); //Increment the time
+		time2string( textstring, mytime );
+		display_string( 3, textstring );
+		display_update();
+		display_image(96, icon);
+
 		*portE += 1; //Add one to portE each second
 		timeoutcount = 0; //Reset the timeout
 	}
