@@ -27,7 +27,10 @@ int prime = 1234567;
 /* Interrupt Service Routine */
 void user_isr( void )
 {
-	return;
+	time2string(textstring, mytime);
+	display_string(3, textstring);
+	display_update();
+	tick(&mytime);
 }
 
 /* Lab-specific initialization goes here */
