@@ -22,7 +22,19 @@ void print_mean(int n){
 			}
 		}
 	}
-	
+
+	//Count the amount of prime numbers
+	int primeTotal = 0;
+	int primeCount = 0;
+
+	for(int i = 0; i <= n; i++) {
+		if(numbers[i]){
+			primeCount++;
+			primeTotal += i+2;
+		}
+	}
+	printf("%f", (float) primeTotal/primeCount);
+
 }
 
 // 'argc' contains the number of program arguments, and
