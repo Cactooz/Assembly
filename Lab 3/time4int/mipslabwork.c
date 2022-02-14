@@ -22,6 +22,8 @@ volatile int* portE = (volatile int*) 0xbf886110; //Pointer for portE to its adr
 
 int timeoutcount = 0; //Keeping track of the amount of timeouts
 
+int prime = 1234567;
+
 /* Interrupt Service Routine */
 void user_isr( void )
 {
