@@ -42,6 +42,7 @@ void labinit( void )
 
 	//Timer
 	T2CONCLR = 0xffff; //Disable and clear the timer
+	IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
 
 	T2CONSET = 0x70; //Set the prescale to 256:1 (The timer fires 80 000 000 times a second which is more than the 65k that 16-bits can hold)
 	PR2 = 0x7a12; //Set the time period for timer2 to 100ms (80 000 000/256=312500, 312500/10=31250=0x7a12)
