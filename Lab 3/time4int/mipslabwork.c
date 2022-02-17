@@ -27,10 +27,18 @@ int prime = 1234567;
 /* Interrupt Service Routine */
 void user_isr( void )
 {
-	time2string(textstring, mytime);
-	display_string(3, textstring);
-	display_update();
-	tick(&mytime);
+	IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
+	timeoutcount++;
+
+	if(timeoutcount >= 10) {
+		time2string(textstring, mytime);
+		display_string(3, textstring);
+		display_update();
+		tick(&mytime);
+
+		*portE += 1;
+		timeoutcount = 0;
+	}
 }
 
 /* Lab-specific initialization goes here */
