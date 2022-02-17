@@ -64,6 +64,11 @@ void labinit( void )
 	
 	TMR2 = 0; //Set the timer to 0
 	T2CONSET = 0x8000; //Start the timer
+
+	IECSET(0) = 0x0100; //Enable the interrupts
+	IPCSET(2) = 0x01c; //Set the highest interrupt priority
+
+	enable_interrupt(); //Enable the interrupts globally
 }
 
 /* This function is called repetitively from the main program */
