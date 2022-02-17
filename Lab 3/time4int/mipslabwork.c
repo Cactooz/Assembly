@@ -38,8 +38,8 @@ void user_isr( void )
 		display_update();
 		tick(&mytime);
 
-		*portE += 1;
-		timeoutcount = 0;
+		*portE += 1; //Add one to portE each second
+		timeoutcount = 0; //Reset the timeout
 	}
 }
 
