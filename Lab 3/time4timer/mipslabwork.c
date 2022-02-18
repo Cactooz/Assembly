@@ -63,9 +63,9 @@ void labwork( void )
 	if(btnData & 1) //Button 2, 0001 = 1
 		mytime = (mytime & 0xFF0F) | (swData << 4);
 
-	if(IFS(0) & 0x0100) { //Check if the 3rd bit is 1, if so then we have a interupt for TMR2
+	if(IFS(0) & 0x0100) { //Check if the 8th bit is 1, if so then we have a interupt for TMR2
 		timeoutcount++; //Increment timeout, counting up to a second
-		IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
+		IFSCLR(0) = 0x0100; //Clear the 8th bit, resetting the timeout
 	}
 
 	if(timeoutcount >= 10) {
