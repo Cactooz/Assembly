@@ -72,17 +72,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
       <rect fill="none" height="66" stroke="#000000" stroke-width="2" width="92" x="48" y="58"/>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="65" y="115">B</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="65" y="83">A</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="119" y="74">Zero</text>
-      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="126" y="94">Y</text>
-      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="96" y="99">ALU</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="62" y="114">B</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="63" y="85">A</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="120" y="113">Zero</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="126" y="85">Y</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="93" y="96">ALU</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="90" y="75">F</text>
       <circ-port height="8" pin="100,110" width="8" x="86" y="56"/>
       <circ-port height="8" pin="150,180" width="8" x="46" y="106"/>
       <circ-port height="8" pin="150,270" width="8" x="46" y="76"/>
-      <circ-port height="10" pin="470,130" width="10" x="135" y="85"/>
-      <circ-port height="10" pin="510,300" width="10" x="135" y="95"/>
+      <circ-port height="10" pin="470,130" width="10" x="135" y="75"/>
+      <circ-port height="10" pin="510,300" width="10" x="135" y="105"/>
       <circ-anchor facing="east" height="6" width="6" x="137" y="77"/>
     </appear>
     <wire from="(210,100)" to="(210,170)"/>
