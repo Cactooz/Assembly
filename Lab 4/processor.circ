@@ -293,36 +293,47 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(140,270)" to="(170,270)"/>
     <wire from="(90,140)" to="(90,300)"/>
-    <wire from="(70,270)" to="(100,270)"/>
-    <wire from="(170,290)" to="(180,290)"/>
-    <wire from="(220,280)" to="(230,280)"/>
-    <wire from="(780,360)" to="(810,360)"/>
+    <wire from="(140,270)" to="(140,310)"/>
     <wire from="(110,290)" to="(110,300)"/>
-    <wire from="(130,270)" to="(180,270)"/>
+    <wire from="(600,350)" to="(630,350)"/>
     <wire from="(90,300)" to="(110,300)"/>
+    <wire from="(80,270)" to="(100,270)"/>
+    <wire from="(30,310)" to="(140,310)"/>
+    <wire from="(160,290)" to="(170,290)"/>
+    <wire from="(130,270)" to="(140,270)"/>
+    <wire from="(210,280)" to="(220,280)"/>
+    <wire from="(30,260)" to="(40,260)"/>
+    <wire from="(30,280)" to="(40,280)"/>
+    <wire from="(30,280)" to="(30,310)"/>
     <comp lib="0" loc="(90,140)" name="Clock">
       <a name="facing" val="south"/>
     </comp>
-    <comp lib="0" loc="(810,360)" name="Pin">
+    <comp lib="3" loc="(210,280)" name="Shifter">
+      <a name="shift" val="lr"/>
+    </comp>
+    <comp lib="4" loc="(360,280)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+0 bbbbbbbb cc
+</a>
+    </comp>
+    <comp loc="(520,60)" name="ControlUnit"/>
+    <comp lib="4" loc="(130,270)" name="Register"/>
+    <comp lib="0" loc="(630,350)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
       <a name="label" val="$v0"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(520,60)" name="ControlUnit"/>
-    <comp lib="4" loc="(130,270)" name="Register"/>
-    <comp lib="3" loc="(220,280)" name="Shifter">
-      <a name="shift" val="lr"/>
+    <comp lib="3" loc="(80,270)" name="Adder"/>
+    <comp lib="0" loc="(30,260)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x4"/>
     </comp>
-    <comp lib="4" loc="(370,280)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-aa bbbbbbbb cc
-</a>
-    </comp>
-    <comp lib="0" loc="(170,290)" name="Constant">
+    <comp lib="0" loc="(160,290)" name="Constant">
       <a name="width" val="3"/>
       <a name="value" val="0x2"/>
     </comp>
