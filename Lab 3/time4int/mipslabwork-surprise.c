@@ -33,7 +33,7 @@ void user_isr( void )
 	}
 
 	if(IFS(0) & 0x08000) { //Check if the 16th bit is 1, if so then we have a interupt for SW3
-		timeoutcount++; //Increment timeout, counting up to a second
+		*portE += 1; //Add one to portE after each interrupt
 		IFSCLR(0) = 0x08000; //Clear the 3rd bit, resetting the timeout
 	}
 
