@@ -36,7 +36,7 @@ void user_isr( void )
 		timeoutcount++; //Increment timeout, counting up to a second
 		IFSCLR(0) = 0x08000; //Clear the 3rd bit, resetting the timeout
 	}
-	
+
 	if(timeoutcount >= 10) {
 		time2string(textstring, mytime);
 		display_string(3, textstring);
@@ -70,8 +70,11 @@ void labinit( void )
 	TMR2 = 0; //Set the timer to 0
 	T2CONSET = 0x8000; //Start the timer
 
-	IECSET(0) = 0x0100; //Enable the interrupts
-	IPCSET(2) = 0x01f; //Set the highest interrupt priority
+	IECSET(0) = 0x08000; //Enable the interrupts for SW3
+	IPCSET(3) = 0x01E000000; //Set the second highest interrupt priority for SW3
+
+	IECSET(0) = 0x0100; //Enable the interrupts for TMR2
+	IPCSET(2) = 0x01f; //Set the highest interrupt priority for TMR2
 
 	enable_interrupt(); //Enable the interrupts globally
 }
