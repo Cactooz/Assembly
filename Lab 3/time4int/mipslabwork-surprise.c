@@ -32,6 +32,11 @@ void user_isr( void )
 		IFSCLR(0) = 0x0100; //Clear the 3rd bit, resetting the timeout
 	}
 
+	if(IFS(0) & 0x08000) { //Check if the 16th bit is 1, if so then we have a interupt for SW3
+		timeoutcount++; //Increment timeout, counting up to a second
+		IFSCLR(0) = 0x08000; //Clear the 3rd bit, resetting the timeout
+	}
+	
 	if(timeoutcount >= 10) {
 		time2string(textstring, mytime);
 		display_string(3, textstring);
